@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/eddie/Documents/CLionProject/webTest/Connection.h
+SET.h
+/Users/eddie/Documents/CLionProject/webTest/SET.h
+
+/Users/eddie/Documents/CLionProject/webTest/SET.h
+stdio.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+pthread.h
+-
+
+/Users/eddie/Documents/CLionProject/webTest/main.c
+Connection.h
+/Users/eddie/Documents/CLionProject/webTest/Connection.h
+
