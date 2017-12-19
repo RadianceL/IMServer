@@ -1,7 +1,6 @@
-#include "Connection.h"
+#include "test/Connection.h"
 
 int main() {
     connection();
-    //process_test();
     return EXIT_SUCCESS;
 }
