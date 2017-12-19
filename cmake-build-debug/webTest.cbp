@@ -82,10 +82,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/Connection.h">
+		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.h">
 			<Option target="webTest"/>
 		</Unit>
-		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/SET.h">
+		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/HEADER/SET.h">
+			<Option target="webTest"/>
+		</Unit>
+		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/TOOL/GETConfig.c">
 			<Option target="webTest"/>
 		</Unit>
 		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/main.c">

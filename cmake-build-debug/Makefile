@@ -123,6 +123,33 @@ webTest/fast:
 	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/build
 .PHONY : webTest/fast
 
+TOOL/GETConfig.o: TOOL/GETConfig.c.o
+
+.PHONY : TOOL/GETConfig.o
+
+# target to build an object file
+TOOL/GETConfig.c.o:
+	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/TOOL/GETConfig.c.o
+.PHONY : TOOL/GETConfig.c.o
+
+TOOL/GETConfig.i: TOOL/GETConfig.c.i
+
+.PHONY : TOOL/GETConfig.i
+
+# target to preprocess a source file
+TOOL/GETConfig.c.i:
+	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/TOOL/GETConfig.c.i
+.PHONY : TOOL/GETConfig.c.i
+
+TOOL/GETConfig.s: TOOL/GETConfig.c.s
+
+.PHONY : TOOL/GETConfig.s
+
+# target to generate assembly for a file
+TOOL/GETConfig.c.s:
+	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/TOOL/GETConfig.c.s
+.PHONY : TOOL/GETConfig.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... webTest"
+	@echo "... TOOL/GETConfig.o"
+	@echo "... TOOL/GETConfig.i"
+	@echo "... TOOL/GETConfig.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
