@@ -7,14 +7,14 @@
 #IncludeRegexTransform: 
 
 /Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.c
-WebConnection.h
-/Users/eddie/Documents/CLionProject/webTest/FUNCTION/WebConnection.h
+Connection.h
+/Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.h
 
-/Users/eddie/Documents/CLionProject/webTest/FUNCTION/WebConnection.h
-../HEADER/SET.h
-/Users/eddie/Documents/CLionProject/webTest/HEADER/SET.h
+/Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.h
+../SETCONFIG/CONNECTIONSET.h
+/Users/eddie/Documents/CLionProject/webTest/SETCONFIG/CONNECTIONSET.h
 
-/Users/eddie/Documents/CLionProject/webTest/HEADER/SET.h
+/Users/eddie/Documents/CLionProject/webTest/SETCONFIG/CONNECTIONSET.h
 stdio.h
 -
 sys/socket.h
@@ -35,6 +35,6 @@ pthread.h
 /Users/eddie/Documents/CLionProject/webTest/TOOL/GETConfig.c
 
 /Users/eddie/Documents/CLionProject/webTest/main.c
-FUNCTION/WebConnection.h
-/Users/eddie/Documents/CLionProject/webTest/FUNCTION/WebConnection.h
+FUNCTION/Connection.h
+/Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.h
 

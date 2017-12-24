@@ -3,7 +3,7 @@ project(webTest)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES main.c SETCONFIG/SET.h FUNCTION/Connection.c TOOL/GETConfig.c FUNCTION/Connection.h)
+set(SOURCE_FILES main.c SETCONFIG/CONNECTIONSET.h FUNCTION/Connection.c TOOL/GETConfig.c FUNCTION/Connection.h)
 add_executable(webTest ${SOURCE_FILES})
 
 target_link_libraries(webTest pthread)

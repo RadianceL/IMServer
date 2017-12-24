@@ -3,11 +3,11 @@
 
 CMakeFiles/webTest.dir/FUNCTION/Connection.c.o
  /Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.c
- /Users/eddie/Documents/CLionProject/webTest/FUNCTION/WebConnection.h
- /Users/eddie/Documents/CLionProject/webTest/HEADER/SET.h
+ /Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.h
+ /Users/eddie/Documents/CLionProject/webTest/SETCONFIG/CONNECTIONSET.h
 CMakeFiles/webTest.dir/TOOL/GETConfig.c.o
  /Users/eddie/Documents/CLionProject/webTest/TOOL/GETConfig.c
 CMakeFiles/webTest.dir/main.c.o
- /Users/eddie/Documents/CLionProject/webTest/FUNCTION/WebConnection.h
- /Users/eddie/Documents/CLionProject/webTest/HEADER/SET.h
+ /Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.h
+ /Users/eddie/Documents/CLionProject/webTest/SETCONFIG/CONNECTIONSET.h
  /Users/eddie/Documents/CLionProject/webTest/main.c

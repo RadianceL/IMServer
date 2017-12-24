@@ -28,22 +28,40 @@ int initServer() {
 
 void thread(void* args) {
 
-    char buffer[BUFFER_SIZE];
+    //客户机传上来的数据
+    char buffer_client[BUFFER_SIZE];
+    //服务器将要发出的数据
+    char buffer_server[BUFFER_SIZE];
+    //客户机的连接句柄
     int client_sock_fd = *(int *) args;
 
+    //判定连接是否可用
     if (client_sock_fd < 0) {
         perror("accept error:"); // 打印连接出错信息
     }
-    memset(buffer,0,BUFFER_SIZE);
 
-    int size = read(client_sock_fd,buffer,BUFFER_SIZE);
-    write(1,buffer, size);
+    while (1) {
 
-    //清理内存空间
-    free(client_sock_fd);
+        //清理buffer空间
+        memset(buffer_client, 0, BUFFER_SIZE);
+        memset(buffer_server, 0, BUFFER_SIZE);
+
+        buffer_server[0] = '1';
+
+        //获取可用字符串
+        int size = read(client_sock_fd, buffer_client, BUFFER_SIZE);
+        //写到屏幕上
+        if (buffer_client[0] == 'e' && buffer_client[1] == 'x' && buffer_client[2] == 'i' && buffer_client[3] == 't'){
+            break;
+        }
+        write(client_sock_fd, buffer_server, size);
+
+        write(1, buffer_client, size);
+    }
 
     close(client_sock_fd);
     pthread_exit(0);
+
 }
 
 void connection() {
@@ -59,6 +77,8 @@ void connection() {
 
         //在顺序执行不循环的状态下，顺序执行，主线程执行完直接结束，可能不执行thread
         pthread_create(&thread_id,NULL,thread,client_sockfd);
+
+        free(client_sockfd);
     }
     close(server_fd);
 }

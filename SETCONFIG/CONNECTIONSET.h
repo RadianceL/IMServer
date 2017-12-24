@@ -10,7 +10,7 @@
 #include <string.h>
 #include <pthread.h>
 
-#define BUFFER_SIZE 512 // 这是接收缓冲区的大小， 发送缓冲区动态指定，动态分配
+#define BUFFER_SIZE 256 // 这是接收缓冲区的大小， 发送缓冲区动态指定，动态分配
 #define QUEUE 10        // 设置队列
 
 #endif
