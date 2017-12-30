@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.c" "/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles/webTest.dir/FUNCTION/Connection.c.o"
+  "/Users/eddie/Documents/CLionProject/webTest/FUNCTION/InitConnection.c" "/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles/webTest.dir/FUNCTION/InitConnection.c.o"
   "/Users/eddie/Documents/CLionProject/webTest/TOOL/GETConfig.c" "/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles/webTest.dir/TOOL/GETConfig.c.o"
   "/Users/eddie/Documents/CLionProject/webTest/main.c" "/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles/webTest.dir/main.c.o"
   )
@@ -12,6 +13,7 @@ set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../lib"
   )
 
 # Targets to which this target links.

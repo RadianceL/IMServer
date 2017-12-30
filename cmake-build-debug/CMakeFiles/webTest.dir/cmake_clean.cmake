@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/webTest.dir/main.c.o"
   "CMakeFiles/webTest.dir/FUNCTION/Connection.c.o"
+  "CMakeFiles/webTest.dir/FUNCTION/InitConnection.c.o"
   "CMakeFiles/webTest.dir/TOOL/GETConfig.c.o"
   "webTest.pdb"
   "webTest"

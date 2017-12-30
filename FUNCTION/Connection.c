@@ -5,7 +5,6 @@ int initServer() {
     struct sockaddr_in *server_add;
     server_add = malloc(sizeof(struct sockaddr_in));
 
-
     server_fd = socket(AF_INET, SOCK_STREAM, 0);
     server_add->sin_addr.s_addr = htonl(INADDR_ANY);
     server_add->sin_family = AF_INET;
@@ -27,7 +26,6 @@ int initServer() {
 }
 
 void thread(void* args) {
-
     //客户机传上来的数据
     char buffer_client[BUFFER_SIZE];
     //服务器将要发出的数据
@@ -41,30 +39,30 @@ void thread(void* args) {
     }
 
     while (1) {
-
         //清理buffer空间
         memset(buffer_client, 0, BUFFER_SIZE);
         memset(buffer_server, 0, BUFFER_SIZE);
 
         buffer_server[0] = '1';
+        buffer_server[1] = '\n';
 
         //获取可用字符串
         int size = read(client_sock_fd, buffer_client, BUFFER_SIZE);
-        //写到屏幕上
+
+        //判定是否断开连接
         if (buffer_client[0] == 'e' && buffer_client[1] == 'x' && buffer_client[2] == 'i' && buffer_client[3] == 't'){
             break;
         }
-        write(client_sock_fd, buffer_server, size);
 
+        write(client_sock_fd, buffer_server, size);
         write(1, buffer_client, size);
     }
 
     close(client_sock_fd);
     pthread_exit(0);
-
 }
 
-void connection() {
+void connect_im_chat() {
     int server_fd = initServer();
     struct sockaddr_in client_addr;
     int len = sizeof(client_addr);
@@ -73,7 +71,6 @@ void connection() {
         //阻塞，直到有用户连接
         int *client_sockfd = (int *) malloc(sizeof(int));
         *client_sockfd = accept(server_fd, &client_addr, &len);
-        //开启线程
 
         //在顺序执行不循环的状态下，顺序执行，主线程执行完直接结束，可能不执行thread
         pthread_create(&thread_id,NULL,thread,client_sockfd);

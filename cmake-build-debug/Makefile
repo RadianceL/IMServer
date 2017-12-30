@@ -150,6 +150,33 @@ FUNCTION/Connection.c.s:
 	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/FUNCTION/Connection.c.s
 .PHONY : FUNCTION/Connection.c.s
 
+FUNCTION/InitConnection.o: FUNCTION/InitConnection.c.o
+
+.PHONY : FUNCTION/InitConnection.o
+
+# target to build an object file
+FUNCTION/InitConnection.c.o:
+	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/FUNCTION/InitConnection.c.o
+.PHONY : FUNCTION/InitConnection.c.o
+
+FUNCTION/InitConnection.i: FUNCTION/InitConnection.c.i
+
+.PHONY : FUNCTION/InitConnection.i
+
+# target to preprocess a source file
+FUNCTION/InitConnection.c.i:
+	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/FUNCTION/InitConnection.c.i
+.PHONY : FUNCTION/InitConnection.c.i
+
+FUNCTION/InitConnection.s: FUNCTION/InitConnection.c.s
+
+.PHONY : FUNCTION/InitConnection.s
+
+# target to generate assembly for a file
+FUNCTION/InitConnection.c.s:
+	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/FUNCTION/InitConnection.c.s
+.PHONY : FUNCTION/InitConnection.c.s
+
 TOOL/GETConfig.o: TOOL/GETConfig.c.o
 
 .PHONY : TOOL/GETConfig.o
@@ -216,6 +243,9 @@ help:
 	@echo "... FUNCTION/Connection.o"
 	@echo "... FUNCTION/Connection.i"
 	@echo "... FUNCTION/Connection.s"
+	@echo "... FUNCTION/InitConnection.o"
+	@echo "... FUNCTION/InitConnection.i"
+	@echo "... FUNCTION/InitConnection.s"
 	@echo "... TOOL/GETConfig.o"
 	@echo "... TOOL/GETConfig.i"
 	@echo "... TOOL/GETConfig.s"

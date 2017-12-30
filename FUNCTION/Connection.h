@@ -3,10 +3,6 @@
 
 #include "../SETCONFIG/CONNECTIONSET.h"
 
-int initServer();
-
-void thread(void* args);
-
-void connection();
+void connect_im_chat();
 
 #endif
