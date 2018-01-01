@@ -13,7 +13,6 @@ CMakeFiles/webTest.dir/TOOL/GETConfig.c.o: ../TOOL/GETConfig.c
 
 CMakeFiles/webTest.dir/main.c.o: ../lib/static_lib.h
 CMakeFiles/webTest.dir/main.c.o: ../FUNCTION/Connection.h
-CMakeFiles/webTest.dir/main.c.o: ../FUNCTION/InitConnection.h
 CMakeFiles/webTest.dir/main.c.o: ../SETCONFIG/CONNECTIONSET.h
 CMakeFiles/webTest.dir/main.c.o: ../main.c
 
