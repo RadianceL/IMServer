@@ -45,6 +45,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/eddie/Documents/CLionProject/webTest/lib"/>
+					<Add directory="/usr/local/mysql/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
@@ -68,6 +69,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/eddie/Documents/CLionProject/webTest/lib"/>
+					<Add directory="/usr/local/mysql/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
@@ -84,18 +86,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.c">
-			<Option target="webTest"/>
-		</Unit>
-		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/FUNCTION/Connection.h">
-			<Option target="webTest"/>
-		</Unit>
-		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/FUNCTION/InitConnection.c">
-			<Option target="webTest"/>
-		</Unit>
-		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/FUNCTION/InitConnection.h">
-			<Option target="webTest"/>
-		</Unit>
 		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/SETCONFIG/CONNECTIONSET.h">
 			<Option target="webTest"/>
 		</Unit>

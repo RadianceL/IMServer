@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu99
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/eddie/Documents/CLionProject/webTest/lib 
+C_INCLUDES = -I/Users/eddie/Documents/CLionProject/webTest/lib -I/usr/local/mysql/include 
 
