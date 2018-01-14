@@ -14,7 +14,7 @@ link_libraries(libmysqlclient.a)
 set(SOURCE_FILES main.c
         SETCONFIG/CONNECTIONSET.h
         TOOL/GETConfig.c
-        lib/static_lib.h)
+        lib/static_lib.h DATABASES/CONNECTDATABASE.c DATABASES/CONNECTDATABASE.h)
 
 add_executable(webTest ${SOURCE_FILES})
 

@@ -123,6 +123,33 @@ webTest/fast:
 	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/build
 .PHONY : webTest/fast
 
+DATABASES/CONNECTDATABASE.o: DATABASES/CONNECTDATABASE.c.o
+
+.PHONY : DATABASES/CONNECTDATABASE.o
+
+# target to build an object file
+DATABASES/CONNECTDATABASE.c.o:
+	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o
+.PHONY : DATABASES/CONNECTDATABASE.c.o
+
+DATABASES/CONNECTDATABASE.i: DATABASES/CONNECTDATABASE.c.i
+
+.PHONY : DATABASES/CONNECTDATABASE.i
+
+# target to preprocess a source file
+DATABASES/CONNECTDATABASE.c.i:
+	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.i
+.PHONY : DATABASES/CONNECTDATABASE.c.i
+
+DATABASES/CONNECTDATABASE.s: DATABASES/CONNECTDATABASE.c.s
+
+.PHONY : DATABASES/CONNECTDATABASE.s
+
+# target to generate assembly for a file
+DATABASES/CONNECTDATABASE.c.s:
+	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.s
+.PHONY : DATABASES/CONNECTDATABASE.c.s
+
 TOOL/GETConfig.o: TOOL/GETConfig.c.o
 
 .PHONY : TOOL/GETConfig.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... webTest"
+	@echo "... DATABASES/CONNECTDATABASE.o"
+	@echo "... DATABASES/CONNECTDATABASE.i"
+	@echo "... DATABASES/CONNECTDATABASE.s"
 	@echo "... TOOL/GETConfig.o"
 	@echo "... TOOL/GETConfig.i"
 	@echo "... TOOL/GETConfig.s"

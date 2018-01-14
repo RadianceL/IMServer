@@ -1,5 +1,6 @@
 #include <static_lib.h>
 #include "../SETCONFIG/CONNECTIONSET.h"
+#include "DATABASES/CONNECTDATABASE.h"
 
 void test1(char json[]);
 void test2();
@@ -57,7 +58,7 @@ void thread(void* args) {
 //
 //  判定是否断开连接
 //  if (buffer_client[0] == 'e' && buffer_client[1] == 'x' && buffer_client[2] == 'i' && buffer_client[3] == 't'){
-//      reak;
+//      break;
 //  }
     buffer_client[size] = "\0";
     test1(buffer_client);
@@ -75,6 +76,10 @@ void thread(void* args) {
     write(client_sock_fd, pJson, strlen(pJson));
 
     close(client_sock_fd);
+
+    connect_database_init();
+    init_databases();
+    add_user();
     pthread_exit(0);
 }
 
@@ -114,7 +119,6 @@ void process_test() {
 }
 
 int main() {
-    //test();
     connect_client();
 
     return EXIT_SUCCESS;

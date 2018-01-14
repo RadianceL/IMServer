@@ -86,6 +86,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/DATABASES/CONNECTDATABASE.c">
+			<Option target="webTest"/>
+		</Unit>
+		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/DATABASES/CONNECTDATABASE.h">
+			<Option target="webTest"/>
+		</Unit>
 		<Unit filename="/Users/eddie/Documents/CLionProject/webTest/SETCONFIG/CONNECTIONSET.h">
 			<Option target="webTest"/>
 		</Unit>
