@@ -17,7 +17,7 @@ CHAT_INFO* get_chat_info(char json[]);
 void test4();
 
 //记录登陆信息
-void creater_SOCKER_ARRAY_index(int socket,char* name);
+void creater_SOCKER_ARRAY_index(int socket,LOGIN_INFO* name);
 //登出，并关闭socket
 void delete_SOCKER_ARRA_index(int index);
 
@@ -96,8 +96,7 @@ void thread(void* args) {
                 write(client_sock_fd, pJ, len);
                 write(client_sock_fd, "\n", sizeof("\n"));
 
-                char ID[16] = "931305033";
-                creater_SOCKER_ARRAY_index(client_sock_fd, ID);
+                creater_SOCKER_ARRAY_index(client_sock_fd, login_info);
                 //主动发出信息
                 send_friend_list_to_client(client_sock_fd);
             } else {
@@ -142,7 +141,7 @@ void thread(void* args) {
             for (int i = 0; i < TotalSockets; ++i) {
 
                 if(!strcmp(SOCKER_ARRAY[i].name,chat_info->account)){
-                    
+
                     printf("%s++++++%s\n",SOCKER_ARRAY[i].name,chat_info->account);
 
                     write(client_sock_fd, "ffff", strlen("ffff"));
@@ -203,8 +202,6 @@ LOGIN_INFO * get_login_info(char json[]) {
     LOGIN_INFO *login_info = malloc(sizeof(LOGIN_INFO));
     send_client_login_info(login_info,json);
 
-    free(login_info);
-
     return login_info;
 }
 
@@ -219,7 +216,6 @@ LOGOUT_INFO * get_logout_info(char json[]) {
 CHAT_INFO* get_chat_info(char json[]) {
     CHAT_INFO * chat_info = malloc(sizeof(CHAT_INFO));
     send_client_chat_info(chat_info,json);
-    free(chat_info);
 
     return chat_info;
 }
@@ -231,16 +227,13 @@ void test4() {
     ADD_INFO *add_info;
     add_info = malloc(sizeof(ADD_INFO));
     send_add_chat_info(add_info,json);
-    printf("%s\n",add_info->account);
-    printf("%d\n",add_info->ACTION);
-    free(add_info);
     printf("----------------------------------\n");
 }
 
-void creater_SOCKER_ARRAY_index(int socket,char ID[32]){
+void creater_SOCKER_ARRAY_index(int socket,LOGIN_INFO* ID){
     if (TotalSockets<1000){
         SOCKET_INFORMATION SI;
-        strcpy(SI.name,ID);
+        SI.name = ID->account;
         SI.Socket = socket;
         SOCKER_ARRAY[TotalSockets] = SI;
         printf("%s\n",SI.name);

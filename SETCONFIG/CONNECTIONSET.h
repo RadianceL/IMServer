@@ -11,7 +11,7 @@
 #include <pthread.h>
 
 typedef struct _SOCKET_INFORMATION   {
-    char name[32];        // 发送和接收数据的缓冲区
+    char *name;        // 发送和接收数据的缓冲区
     int Socket;                      // 与客户端进行通信的套接字
 } SOCKET_INFORMATION;
 
