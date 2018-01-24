@@ -14,7 +14,7 @@ LOGOUT_INFO* get_logout_info(char json[]);
 
 CHAT_INFO* get_chat_info(char json[]);
 
-void test4();
+ADD_INFO* get_Add_INFO(char json[]);
 
 //记录登陆信息
 void creater_SOCKER_ARRAY_index(int socket,LOGIN_INFO* name);
@@ -221,13 +221,11 @@ CHAT_INFO* get_chat_info(char json[]) {
 }
 
 
-void test4() {
-    printf("Add_INFO : \n");
-    char json[] = "{\"ACTION\":1111,\"account\":\"931305033\"}";
-    ADD_INFO *add_info;
-    add_info = malloc(sizeof(ADD_INFO));
+ADD_INFO* get_Add_INFO(char json[]) {
+    ADD_INFO *add_info = malloc(sizeof(ADD_INFO));
     send_add_chat_info(add_info,json);
-    printf("----------------------------------\n");
+
+    return add_info;
 }
 
 void creater_SOCKER_ARRAY_index(int socket,LOGIN_INFO* ID){
