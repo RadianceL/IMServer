@@ -4,16 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/eddie/Documents/CLionProject/webTest/DATABASES/CONNECTDATABASE.c" "/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o"
-  "/Users/eddie/Documents/CLionProject/webTest/TOOL/GETConfig.c" "/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles/webTest.dir/TOOL/GETConfig.c.o"
-  "/Users/eddie/Documents/CLionProject/webTest/main.c" "/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles/webTest.dir/main.c.o"
+  "/home/eddie/Documents/ClionProject/IMServer/TOOL/GETConfig.c" "/home/eddie/Documents/ClionProject/IMServer/cmake-build-debug/CMakeFiles/webTest.dir/TOOL/GETConfig.c.o"
+  "/home/eddie/Documents/ClionProject/IMServer/main.c" "/home/eddie/Documents/ClionProject/IMServer/cmake-build-debug/CMakeFiles/webTest.dir/main.c.o"
   )
-set(CMAKE_C_COMPILER_ID "AppleClang")
+set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../lib"
-  "/usr/local/mysql/include"
   )
 
 # Targets to which this target links.

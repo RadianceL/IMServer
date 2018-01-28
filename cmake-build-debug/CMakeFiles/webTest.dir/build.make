@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/eddie/clion-2017.3.2/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
+RM = /home/eddie/clion-2017.3.2/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/eddie/Documents/CLionProject/webTest
+CMAKE_SOURCE_DIR = /home/eddie/Documents/ClionProject/IMServer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/eddie/Documents/CLionProject/webTest/cmake-build-debug
+CMAKE_BINARY_DIR = /home/eddie/Documents/ClionProject/IMServer/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/webTest.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/webTest.dir/flags.make
 
 CMakeFiles/webTest.dir/main.c.o: CMakeFiles/webTest.dir/flags.make
 CMakeFiles/webTest.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/webTest.dir/main.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/webTest.dir/main.c.o   -c /Users/eddie/Documents/CLionProject/webTest/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eddie/Documents/ClionProject/IMServer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/webTest.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/webTest.dir/main.c.o   -c /home/eddie/Documents/ClionProject/IMServer/main.c
 
 CMakeFiles/webTest.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/webTest.dir/main.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/eddie/Documents/CLionProject/webTest/main.c > CMakeFiles/webTest.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/eddie/Documents/ClionProject/IMServer/main.c > CMakeFiles/webTest.dir/main.c.i
 
 CMakeFiles/webTest.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/webTest.dir/main.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/eddie/Documents/CLionProject/webTest/main.c -o CMakeFiles/webTest.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/eddie/Documents/ClionProject/IMServer/main.c -o CMakeFiles/webTest.dir/main.c.s
 
 CMakeFiles/webTest.dir/main.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/webTest.dir/main.c.o.provides.build: CMakeFiles/webTest.dir/main.c.o
 
 CMakeFiles/webTest.dir/TOOL/GETConfig.c.o: CMakeFiles/webTest.dir/flags.make
 CMakeFiles/webTest.dir/TOOL/GETConfig.c.o: ../TOOL/GETConfig.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/webTest.dir/TOOL/GETConfig.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/webTest.dir/TOOL/GETConfig.c.o   -c /Users/eddie/Documents/CLionProject/webTest/TOOL/GETConfig.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eddie/Documents/ClionProject/IMServer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/webTest.dir/TOOL/GETConfig.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/webTest.dir/TOOL/GETConfig.c.o   -c /home/eddie/Documents/ClionProject/IMServer/TOOL/GETConfig.c
 
 CMakeFiles/webTest.dir/TOOL/GETConfig.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/webTest.dir/TOOL/GETConfig.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/eddie/Documents/CLionProject/webTest/TOOL/GETConfig.c > CMakeFiles/webTest.dir/TOOL/GETConfig.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/eddie/Documents/ClionProject/IMServer/TOOL/GETConfig.c > CMakeFiles/webTest.dir/TOOL/GETConfig.c.i
 
 CMakeFiles/webTest.dir/TOOL/GETConfig.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/webTest.dir/TOOL/GETConfig.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/eddie/Documents/CLionProject/webTest/TOOL/GETConfig.c -o CMakeFiles/webTest.dir/TOOL/GETConfig.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/eddie/Documents/ClionProject/IMServer/TOOL/GETConfig.c -o CMakeFiles/webTest.dir/TOOL/GETConfig.c.s
 
 CMakeFiles/webTest.dir/TOOL/GETConfig.c.o.requires:
 
@@ -105,45 +105,19 @@ CMakeFiles/webTest.dir/TOOL/GETConfig.c.o.provides: CMakeFiles/webTest.dir/TOOL/
 CMakeFiles/webTest.dir/TOOL/GETConfig.c.o.provides.build: CMakeFiles/webTest.dir/TOOL/GETConfig.c.o
 
 
-CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o: CMakeFiles/webTest.dir/flags.make
-CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o: ../DATABASES/CONNECTDATABASE.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o   -c /Users/eddie/Documents/CLionProject/webTest/DATABASES/CONNECTDATABASE.c
-
-CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/eddie/Documents/CLionProject/webTest/DATABASES/CONNECTDATABASE.c > CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.i
-
-CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/eddie/Documents/CLionProject/webTest/DATABASES/CONNECTDATABASE.c -o CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.s
-
-CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o.requires:
-
-.PHONY : CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o.requires
-
-CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o.provides: CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o.requires
-	$(MAKE) -f CMakeFiles/webTest.dir/build.make CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o.provides.build
-.PHONY : CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o.provides
-
-CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o.provides.build: CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o
-
-
 # Object files for target webTest
 webTest_OBJECTS = \
 "CMakeFiles/webTest.dir/main.c.o" \
-"CMakeFiles/webTest.dir/TOOL/GETConfig.c.o" \
-"CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o"
+"CMakeFiles/webTest.dir/TOOL/GETConfig.c.o"
 
 # External object files for target webTest
 webTest_EXTERNAL_OBJECTS =
 
 webTest: CMakeFiles/webTest.dir/main.c.o
 webTest: CMakeFiles/webTest.dir/TOOL/GETConfig.c.o
-webTest: CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o
 webTest: CMakeFiles/webTest.dir/build.make
 webTest: CMakeFiles/webTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable webTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/eddie/Documents/ClionProject/IMServer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable webTest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/webTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,7 +127,6 @@ CMakeFiles/webTest.dir/build: webTest
 
 CMakeFiles/webTest.dir/requires: CMakeFiles/webTest.dir/main.c.o.requires
 CMakeFiles/webTest.dir/requires: CMakeFiles/webTest.dir/TOOL/GETConfig.c.o.requires
-CMakeFiles/webTest.dir/requires: CMakeFiles/webTest.dir/DATABASES/CONNECTDATABASE.c.o.requires
 
 .PHONY : CMakeFiles/webTest.dir/requires
 
@@ -162,6 +135,6 @@ CMakeFiles/webTest.dir/clean:
 .PHONY : CMakeFiles/webTest.dir/clean
 
 CMakeFiles/webTest.dir/depend:
-	cd /Users/eddie/Documents/CLionProject/webTest/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/eddie/Documents/CLionProject/webTest /Users/eddie/Documents/CLionProject/webTest /Users/eddie/Documents/CLionProject/webTest/cmake-build-debug /Users/eddie/Documents/CLionProject/webTest/cmake-build-debug /Users/eddie/Documents/CLionProject/webTest/cmake-build-debug/CMakeFiles/webTest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/eddie/Documents/ClionProject/IMServer/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/eddie/Documents/ClionProject/IMServer /home/eddie/Documents/ClionProject/IMServer /home/eddie/Documents/ClionProject/IMServer/cmake-build-debug /home/eddie/Documents/ClionProject/IMServer/cmake-build-debug /home/eddie/Documents/ClionProject/IMServer/cmake-build-debug/CMakeFiles/webTest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/webTest.dir/depend
 

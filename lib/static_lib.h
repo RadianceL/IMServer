@@ -5,7 +5,6 @@
 #ifndef WEBTEST_STATIC_LIB_H
 #define WEBTEST_STATIC_LIB_H
 
-
 typedef struct {
     char *IP;
     int ACTION;
