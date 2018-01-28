@@ -1,4 +1,10 @@
-## c语言服务端
+## Linux C server
 
-- 基于linux系统开发，接受通信请求，维持两个客户端通信功能
+- Base-linux system
+- accept 
+- keep-alive client IM
 
+#### Open with GPL
+
+Author:Eddie
+QQ:931305033
