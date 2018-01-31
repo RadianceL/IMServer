@@ -1,10 +1,11 @@
-#include <../lib/static_lib.h>
 #include <static_lib.h>
+#include <stdbool.h>
 #include "../SETCONFIG/CONNECTIONSET.h"
 
 //发送好友信息到客户端
 void send_friend_list_to_client(int server_fd);
 //获取登陆信息
+
 LOGIN_INFO* get_login_info(char json[]);
 //获取登出信息
 LOGOUT_INFO* get_logout_info(char json[]);
@@ -16,9 +17,15 @@ ADD_INFO* get_Add_INFO(char json[]);
 pSOCKET_INFORMATION pHead;
 
 //记录登陆信息
-void creater_SOCKER_ARRAY_index(pSOCKET_INFORMATION thisHead,int socket,LOGIN_INFO* name);
+void creater_SOCKER_ARRAY_index(pSOCKET_INFORMATION thisHead,int socket,LOGIN_INFO name);
 //登出，并关闭socket
 void delete_SOCKER_ARRA_index(pSOCKET_INFORMATION thisHead,char* index);
+
+void search_chat_with(pSOCKET_INFORMATION pINFORMATION, char* param);
+
+bool search_is_already_create(pSOCKET_INFORMATION thisHead,char* account);
+
+void send_status_info(int client_sock_fd, int status, char *time);
 
 //初始化服务器连接
 int initServer() {
@@ -58,7 +65,7 @@ void thread(void* args) {
     if (pHead == NULL){
         pHead = malloc(sizeof(SOCKET_INFORMATION));
     }
-    pHead->Socket;
+
     //客户机传上来的数据
     char buffer_client[BUFFER_SIZE];
 
@@ -70,8 +77,6 @@ void thread(void* args) {
         perror("accept error:"); // 打印连接出错信息
     }
 
-    printf("accept is success\n");
-
     //清理buffer空间
     memset(buffer_client, 0, BUFFER_SIZE);
     //获取可用字符串
@@ -82,13 +87,12 @@ void thread(void* args) {
         exit(1);
     }
 
-    printf("read success\n");
     //初次判断接收的请求Action是什么
     CHAT_INFO* info = malloc(sizeof(CHAT_INFO));
     //为info赋值
     getAction(info,buffer_client);
 
-    //内存占用8个字节
+    //内存占用8个字节,static,whitout malloc
     LOGIN_INFO* login_info;
     LOGOUT_INFO* logout_info;
     CHAT_INFO* chat_info;
@@ -96,65 +100,48 @@ void thread(void* args) {
     switch (info->ACTION) {
         case 0:
             login_info = get_login_info(buffer_client);
-            //解析后查数据库，登陆成功反回状态信息
-            if (1) {
-                RE_INFO r;
-                r.STATUS = 7;
-                r.t = "2018-01-01";
-                char *pJ = re_status_info(&r);
-                printf("login success\n");
-                int len = strlen(pJ);
-                send(client_sock_fd, pJ, len,0);
-                send(client_sock_fd, "\n", sizeof("\n"),0);
-                printf("return success\n");
-                creater_SOCKER_ARRAY_index(pHead,client_sock_fd, login_info);
-                printf("create success\n");
-                //主动发出信息
+            if (search_is_already_create(pHead,login_info->account)) {
+                creater_SOCKER_ARRAY_index(pHead,client_sock_fd, *login_info);
+                send_status_info(client_sock_fd, 777, login_info->t);
                 send_friend_list_to_client(client_sock_fd);
             } else {
-                RE_INFO r;
-                r.STATUS = 444;//登陆失败，账号或密码错误
-                r.t = "2018-01-01";
-                char *pJ = re_status_info(&r);
-                write(client_sock_fd, pJ, strlen(pJ));
+                send_status_info(client_sock_fd, 444, login_info->t);
             }
             break;
-
         case 886:
             logout_info = get_logout_info(buffer_client);
-            //解析后查数据库，登陆成功反回状态信息
-            if (1) {
-                RE_INFO r;
-                r.STATUS = 7;
-                r.t = "2018-01-01";
-                char *pJ = re_status_info(&r);
-                write(client_sock_fd, pJ, strlen(pJ));
-                write(client_sock_fd, "\n", sizeof("\n"));
-
-                printf("delete_SOCKER_ARRA_index\n ");
-                delete_SOCKER_ARRA_index(pHead,*(logout_info->account));
-                printf("delete_SOCKER_ARRA_index success\n ");
+            if (!search_is_already_create(pHead,logout_info->account)) {
+                delete_SOCKER_ARRA_index(pHead,logout_info->account);
+                send_status_info(client_sock_fd, 777, logout_info->t);
             } else {
-                RE_INFO r;
-                r.STATUS = 444;//登陆失败，账号或密码错误
-                r.t = "2018-01-01";
-                char *pJ = re_status_info(&r);
-                write(client_sock_fd, pJ, strlen(pJ));
+                send_status_info(client_sock_fd, 444, logout_info->t);
             }
             break;
 
         case 11:
             chat_info = get_chat_info(buffer_client);
-
-
-
+            search_chat_with(pHead,*(chat_info->account));
+            show(pHead);
             break;
 
         case 111:
+            //add friend
             break;
     }
 
     pthread_exit(0);
+}
+
+void send_status_info(int client_sock_fd, int status, char *time) {
+    RE_INFO r;
+    r.STATUS = status;
+    r.t = malloc(sizeof(16));
+    r.t = time;
+    char *pJ = re_status_info(&r);
+    int len = strlen(pJ);
+    send(client_sock_fd, pJ, len,0);
+    send(client_sock_fd, "\n", sizeof("\n"),0);
+    free(r.t);
 }
 
 int main() {
@@ -162,7 +149,6 @@ int main() {
     printf("server init over\n");
     struct sockaddr_in *client_addr = malloc(sizeof(struct sockaddr_in));
     int len = sizeof(client_addr);
-
 
     while (666){
         pthread_t thread_id;
@@ -224,47 +210,78 @@ ADD_INFO* get_Add_INFO(char json[]) {
     return add_info;
 }
 
-void creater_SOCKER_ARRAY_index(pSOCKET_INFORMATION thisHead,int socket,LOGIN_INFO* ID){
-    pSOCKET_INFORMATION  pCopy;
-    pCopy= thisHead;
+void creater_SOCKER_ARRAY_index(pSOCKET_INFORMATION thisHead,int socket,LOGIN_INFO ID){
+    pSOCKET_INFORMATION  pCopy = thisHead;
     pSOCKET_INFORMATION  pNew = malloc(sizeof(SOCKET_INFORMATION));
 
-    while (pCopy->next != NULL){
+    while (pCopy->next != NULL) {
         pCopy = pCopy->next;
     }
 
-    pNew->name = ID->account;
+    pNew->info = ID;
     pNew->Socket = socket;
+    pNew->next = NULL;
 
     pCopy->next = pNew;
+    show(thisHead);
 }
 
 void delete_SOCKER_ARRA_index(pSOCKET_INFORMATION thisHead,char* account){
-    pSOCKET_INFORMATION  pCopy = thisHead;
-    show(thisHead);
-    pSOCKET_INFORMATION  p = pCopy->next;
-    while (pCopy != NULL){
-
-        if (pCopy->name == account){
-            pCopy->next = p->next;
-            close(p->Socket);
-            free(p);
+    pSOCKET_INFORMATION  old = thisHead;
+    pSOCKET_INFORMATION  p = thisHead->next;
+    while (old->next != NULL){
+        if (!strcmp(p->info.account , account)){
+            if(p->next!=NULL) {
+                old->next = p->next;
+                close(p->Socket);
+                //waiting replace zhan
+                free(p->info.account);
+                free(p->info.passwd);
+                free(p);
+            } else {
+                old->next = NULL;
+            }
             break;
         }
+        old= p;
+        p = p->next;
+    }
+    show(thisHead);
+}
 
-        pCopy= pCopy->next;
 
-        if (pCopy == NULL){
-            printf("no match\n");
+void search_chat_with(pSOCKET_INFORMATION thisHead, char* param){
+    printf("%s\n\n",param);
+    show(thisHead);
+    pSOCKET_INFORMATION  pCopy = thisHead->next;
+
+    while (pCopy->next != NULL){
+
+        if(!strcmp(pCopy->info.account,*param)){
+            write(pCopy->Socket, param,sizeof(param));
+            write(pCopy->Socket, "\n", sizeof("\n"));
         }
+
+        pCopy = pCopy->next;
     }
 }
 
-void show(pSOCKET_INFORMATION ph){
-    pSOCKET_INFORMATION  pCopy = ph->next;
-    while (pCopy->next != NULL){
-        printf("%s++\n",pCopy->name);
+void show(pSOCKET_INFORMATION thisHead){
+    pSOCKET_INFORMATION  pCopy = thisHead->next;
+    while (pCopy!= NULL){
+        printf("account:%s.IP:%s.passwd:%s.\n",pCopy->info.account,pCopy->info.IP,pCopy->info.passwd);
+        pCopy = pCopy->next;
+    }
+}
+
+bool search_is_already_create(pSOCKET_INFORMATION thisHead,char* account) {
+    pSOCKET_INFORMATION  pCopy = thisHead->next;
+    while (pCopy!= NULL){
+        if (!strcmp(pCopy->info.account,account)){
+            return 0;
+        }
         pCopy = pCopy->next;
     }
 
+    return 1;
 }

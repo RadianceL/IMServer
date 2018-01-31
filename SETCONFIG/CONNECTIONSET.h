@@ -9,9 +9,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
+#include <../lib/static_lib.h>
+
 
 typedef struct _SOCKET_INFORMATION{
-    char *name;         // 发送和接收数据的缓冲区
+    LOGIN_INFO info;         // 发送和接收数据的缓冲区
     int Socket;         // 与客户端进行通信的套接字
     struct _SOCKET_INFORMATION * next;
 } SOCKET_INFORMATION,*pSOCKET_INFORMATION;

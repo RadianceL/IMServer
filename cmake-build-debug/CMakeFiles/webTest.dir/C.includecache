@@ -23,15 +23,17 @@ string.h
 -
 pthread.h
 -
+../lib/static_lib.h
+-
 
 ../lib/static_lib.h
 
 /home/eddie/Documents/ClionProject/IMServer/TOOL/GETConfig.c
 
 /home/eddie/Documents/ClionProject/IMServer/main.c
-../lib/static_lib.h
--
 static_lib.h
+-
+stdbool.h
 -
 ../SETCONFIG/CONNECTIONSET.h
 /home/eddie/Documents/ClionProject/SETCONFIG/CONNECTIONSET.h
