@@ -2,10 +2,11 @@
 #include <stdbool.h>
 #include "../SETCONFIG/CONNECTIONSET.h"
 
+pSOCKET_INFORMATION pHead;
+
 //发送好友信息到客户端
 void send_friend_list_to_client(int server_fd);
 //获取登陆信息
-
 LOGIN_INFO* get_login_info(char json[]);
 //获取登出信息
 LOGOUT_INFO* get_logout_info(char json[]);
@@ -13,8 +14,6 @@ LOGOUT_INFO* get_logout_info(char json[]);
 CHAT_INFO* get_chat_info(char json[]);
 
 ADD_INFO* get_Add_INFO(char json[]);
-
-pSOCKET_INFORMATION pHead;
 
 //记录登陆信息
 void creater_SOCKER_ARRAY_index(pSOCKET_INFORMATION thisHead,int socket,LOGIN_INFO name);
@@ -116,19 +115,25 @@ void thread(void* args) {
             } else {
                 send_status_info(client_sock_fd, 444, logout_info->t);
             }
+            close(client_sock_fd);
             break;
 
         case 11:
             chat_info = get_chat_info(buffer_client);
-            search_chat_with(pHead,*(chat_info->account));
-            show(pHead);
+            if (!search_is_already_create(pHead,chat_info->account)){
+                search_chat_with(pHead,chat_info->account);
+                send_status_info(client_sock_fd, 777, chat_info->t);
+            } else {
+                send_status_info(client_sock_fd, 444, chat_info->t);
+            }
+            close(client_sock_fd);
             break;
 
         case 111:
             //add friend
             break;
     }
-
+    printf("ready out pthread");
     pthread_exit(0);
 }
 
@@ -251,17 +256,14 @@ void delete_SOCKER_ARRA_index(pSOCKET_INFORMATION thisHead,char* account){
 
 
 void search_chat_with(pSOCKET_INFORMATION thisHead, char* param){
-    printf("%s\n\n",param);
-    show(thisHead);
     pSOCKET_INFORMATION  pCopy = thisHead->next;
 
-    while (pCopy->next != NULL){
-
-        if(!strcmp(pCopy->info.account,*param)){
-            write(pCopy->Socket, param,sizeof(param));
-            write(pCopy->Socket, "\n", sizeof("\n"));
+    while (pCopy!= NULL){
+        if(!strcmp(pCopy->info.account,param)){
+            printf("%d\n",pCopy->Socket);
+            send(pCopy->Socket, "test",sizeof("test"),0);
+            send(pCopy->Socket, "\n", sizeof("\n"),0);
         }
-
         pCopy = pCopy->next;
     }
 }
@@ -269,7 +271,7 @@ void search_chat_with(pSOCKET_INFORMATION thisHead, char* param){
 void show(pSOCKET_INFORMATION thisHead){
     pSOCKET_INFORMATION  pCopy = thisHead->next;
     while (pCopy!= NULL){
-        printf("account:%s.IP:%s.passwd:%s.\n",pCopy->info.account,pCopy->info.IP,pCopy->info.passwd);
+        printf("account:%s.IP:%s.passwd:%s.%d\n",pCopy->info.account,pCopy->info.IP,pCopy->info.passwd,pCopy->Socket);
         pCopy = pCopy->next;
     }
 }
