@@ -24,6 +24,7 @@ typedef struct {
     char *IP;
     int ACTION;
     char *account;
+    char *message;
     char *t;
 }CHAT_INFO;
 

@@ -120,6 +120,7 @@ void thread(void* args) {
 
         case 11:
             chat_info = get_chat_info(buffer_client);
+            printf("%s\n",chat_info->message);
             if (!search_is_already_create(pHead,chat_info->account)){
                 search_chat_with(pHead,chat_info->account);
                 send_status_info(client_sock_fd, 777, chat_info->t);
